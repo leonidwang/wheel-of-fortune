@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Wheel of Fortune</title>
+	<title>hangMovie</title>
 	<script type="text/javascript" src="Assets/Scripts/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="Assets/Scripts/scripts.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 	<link rel="stylesheet" type="text/css" href="Assets/Styles/css/styles.css">
 </head>
 <body class="container-fluid">
+	<div id="page-head">
+		<h1>hangMovie</h1>
+	</div>
 	<div id="actor-entry">
-		<label for="actor">Enter an actor</label>
-		<input id="actor-input" type="text" name="actor">
-		<button id="actor-submit">Submit</button>
+		<label for="actor">Enter an actor's name: </label>
+		<div class="actor-entry__input">
+			<input id="actor-input" type="text" name="actor" autofocus>
+			<div id="result-list"></div>
+		</div>
+		<!-- <button id="actor-submit">Submit</button> -->
 		<p id="try-again">Please try again.</p>
 	</div>
 	<div id="letter-list">
-		<div id="letter-menu">
+		<div id="alpha-list"></div>
+<!-- 		<div id="letter-menu">
 			<select id="alpha-list" name="alphabet">
 				<option disabled>Choose a letter</option>
 			</select>
 		</div>
-	</div>
+ -->	</div>
 	<div id="solve-button">
 		<button id="solve-button">Solve It</button>
 	</div>
@@ -51,6 +58,16 @@
 	</div>
 	<div id="miss-counter">
 		<p>You have <span id="misses-left">3</span> miss<span class="plural">es</span> remaining.</p>
+	</div>
+	<div id="instruc-modal">
+		<button id="close-button">&times;</button>
+		<h2>Instructions</h2>
+		<p>Enter an actor's name on the text field at the top of the page.  The game will generate a puzzle board with the title of a movie in which that actor starred.  If the actor isn't found, try entering another name.</p>
+		<p>Begin guessing letters in the title by selecting a letter from the menu.  You'll receive <span id="letter-score"></span> points for each of that letter that appears in the title.  Once you've accumulated more than <span id="vowel-cost"></span> points, you can buy a vowel.  Each vowel pick costs the same, regardless of how many appear in the title.</p>
+		<p>You only need to pick letters for your guesses; any numbers or punctuation are shown at the start of the game.</p>
+		<p>If you think you know the title, click the <b>Solve It</b> button to enter the rest of your guess.  Type carefully!  One wrong letter ends the game.</p>
+		<p>When entering your final guess, you'll get points for each remaining letter based on how many letters you guesses during the game.</p>
+		<p>Once you've picked <span id="guesses-allowed"></span> letters, vowels or consonants, you'll have to make a guess.  If you pick <span id="misses-allowed"></span> letters that aren't in the title, you lose the game.</p>
 	</div>
 </body>
 </html>

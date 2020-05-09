@@ -1,9 +1,76 @@
 @import "colours";
 
 $text-size: 20px;
+$head-ht:	80px;
 
 body	{
 	font-size: $text-size;
+	background-color: $bodyback;
+}
+
+#page-head	{
+	background-color: $headback;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $head-ht;
+	margin: 0;
+	display: block;
+
+	h1	{
+		font-weight: bolder;
+		text-align: center;
+		color: $dkgreen;
+	}
+}
+
+#result-list	{
+	display: none;
+}
+
+#actor-entry	{
+	margin-top: ($head-ht + 20);
+}
+
+#actor-entry label	{
+	float: left;
+	margin-right: 2rem;
+	padding-top: 0.5rem;
+}
+
+.actor-entry__input	{
+	position: relative;
+	display: inline-block;
+	width: 30rem;
+}
+
+#actor-input	{
+	width: 100%;
+}
+
+#result-list	{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	max-height: 40rem;
+	overflow-y: scroll;
+	background: white;
+}
+
+#result-list ul	{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.result-list__item	{
+	cursor: pointer;
+	padding: 1rem;
+
+	&:hover 	{
+		background: lightgrey;
+	}
 }
 
 #try-again	{
@@ -15,6 +82,33 @@ body	{
 #letter-list	{
 	display: inline;
 	margin: 20px;
+}
+
+#alpha-list	{
+	// position: relative;
+	
+	// ::after 	{
+	// 	content: " ";
+	// 	position: absolute;
+	// 	top: 100%;
+	// 	left: 0;
+	// 	width: 100%;
+	// 	height: 200%;
+	// 	background-color: transparent;
+	// }
+}
+
+.list-letter	{
+	cursor: pointer;
+	padding: 0.5rem;
+	font-size: 36px;
+	font-weight: 700;
+	color: #555;
+
+	&.disabled	{
+		cursor: default;
+		color: #bbb;
+	}
 }
 
 #solve-button	{
@@ -46,6 +140,7 @@ body	{
 	padding: 0 5px 20px 5px;
 	border: $box;
 	margin: 10px 10px;
+
 	.letter 	{
 		min-width: 100%;
 		padding-bottom: 10px;
@@ -92,12 +187,32 @@ body	{
 	font-weight: bold;
 	color: red;
 	display: none;
-
 }
 
 #guess-list	{
 	font-size: 36px;
 	font-weight: bold;
+}
+
+#instruc-modal	{
+	display: none;
+	width: 600px;
+	height: 450px;
+	position: fixed;
+	left: 25%;
+	top: 25%;
+	font-size: 12pt;
+	background-color: $headback;
+	padding: 8px;
+	border: 4pt double $dkgreen;
+
+	h2	{
+		margin-top: 0;
+	}
+
+	#close-button	{
+		float: right;
+	}
 }
 
 /*.space-box	{
